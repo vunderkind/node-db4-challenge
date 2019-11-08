@@ -20,7 +20,9 @@ exports.up = function(knex, Promise) {
   };
   
   exports.down = function(knex, Promise) {
-    // drops the entire table
-    return knex.schema.dropTableIfExists('accounts');
+    // drop in the opposite order
+    return knex.schema
+      .dropTableIfExists('ingredients')
+      .dropTableIfExists('recipe')
   };
   
